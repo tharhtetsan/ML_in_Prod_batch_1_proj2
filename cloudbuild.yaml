@@ -23,5 +23,11 @@ steps:
   - --container-image
   - $_AR_HOSTNAME/$_PROJECT_ID/cloud-run-source-deploy/$_IMAGE_NAME:$_SERVER
 
+# Update the instance group with new instance template
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args: ['-c', 'gcloud compute instance-groups managed rolling-action start-update instance-group-$_SERVER --version=template=instance-gp-tp-$_SERVER-$SHORT_SHA --zone=$_ZONE']
+
+
 options:
   logging: CLOUD_LOGGING_ONLY
