@@ -7,5 +7,21 @@ steps:
 - name: gcr.io/cloud-builders/docker
   args: ['push',"$_AR_HOSTNAME/$_PROJECT_ID/cloud-run-source-deploy/$_IMAGE_NAME:$_SERVER"]
 
+
+#  Create the new instance template
+- name: 'gcr.io/cloud-builders/gcloud'
+  id : create-instance-template
+  args:
+  - compute
+  - instance-templates
+  - create-with-container
+  - instance-gp-tp-$_SERVER-$SHORT_SHA
+  - --custom-cpu=2
+  - --custom-memory=8GB
+  - --boot-disk-size=20GB
+  - --region=asia-east
+  - --container-image
+  - $_AR_HOSTNAME/$_PROJECT_ID/cloud-run-source-deploy/$_IMAGE_NAME:$_SERVER
+
 options:
   logging: CLOUD_LOGGING_ONLY
