@@ -1,0 +1,2 @@
+google-cloud-artifact-registry
+google-auth
