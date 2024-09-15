@@ -12,3 +12,9 @@ gcloud compute instance-templates create-with-container instance-gp-tp-prod-123 
 
 gcloud compute instance-groups managed rolling-action start-update instance-group-prod --version=template=instance-gp-tp-prod-48c00c9 --zone=asia-east1-b
 ```
+
+
+#### Cloud Function call
+```bash
+curl -X POST https://YOUR_CLOUD_FUNCTION_URL
+```
