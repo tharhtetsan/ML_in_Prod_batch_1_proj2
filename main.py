@@ -8,7 +8,7 @@ app = FastAPI()
 def home():
     version = os.getenv("APP_VERSION")
     dev_env = os.getenv("ENV")
-    str_out = "Hello world this is 1st {} -  server version : {}".format(dev_env,version)
+    str_out = "Hello world this is 2nd {} -  server version : {}".format(dev_env,version)
     return str_out
 
 
