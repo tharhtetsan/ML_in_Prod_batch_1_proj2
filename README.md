@@ -1,4 +1,8 @@
-# ML_in_Prod_batch_1_proj2
+## ML in Prod (batch-1| proj2)
+#### (CI-CD-With-Cloud-Build-on-Compute-Engine)
+
+![ci_cd_with_gce](./images/today3.png)
+
 
 
 ### Sample gcloud commands
@@ -9,12 +13,11 @@ gcloud compute instance-templates create-with-container instance-gp-tp-prod-123 
 
 
 
-
 gcloud compute instance-groups managed rolling-action start-update instance-group-prod --version=template=instance-gp-tp-prod-48c00c9 --zone=asia-east1-b
 ```
 
 
-#### Cloud Function call
+#### Cloud Function call test
 ```bash
 curl -X POST https://YOUR_CLOUD_FUNCTION_URL
 ```
